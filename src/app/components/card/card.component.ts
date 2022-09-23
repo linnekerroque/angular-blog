@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BlogDataService } from 'src/app/blog-data.service';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  postBlog
+
+  constructor(postBlog:BlogDataService) {
+    this.postBlog = postBlog.getPosts();
+  }
 
   ngOnInit(): void {
   }
