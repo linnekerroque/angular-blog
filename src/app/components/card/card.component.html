@@ -1,9 +1,11 @@
 <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
   <div class="col" *ngFor="let post of postBlog">
     <div class="card h-100 text-justify-content">
-      <img class="card-img-top" src="{{ post.img }}" style="max-height: 171px; min-height: 171px;" />
+      <img [routerLink]="['post', post.id]" class="card-img-top" src="{{ post.img }}" style="max-height: 171px; min-height: 171px;" />
       <div class="card-body">
-        <h5>{{ post.title }}</h5>
+        <a [routerLink]="['post', post.id]" class="link">
+          <h5>{{ post.title }}</h5>
+        </a>
       </div>
     </div>
   </div>
