@@ -10,7 +10,7 @@ import { BlogDataService } from '../../blog-data.service'
 export class PostComponent implements OnInit {
 
   postTitle:string = '';
-  postBody:string = '';
+  postBody:any = '';
   postImg:string = '';
 
   private postId: string = '';
@@ -24,7 +24,7 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     const post = this.postBlog.getPosts().filter(post => post.id == this.postId)[0];
     this.postTitle = post.title;
-    this.postBody = post.body;
+    this.postBody = post.body.split('\n');
     this.postImg = post.img;
   }
 
